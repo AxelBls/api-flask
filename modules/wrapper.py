@@ -2,7 +2,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine, Column, String, ForeignKey
 
-MYSQL_HOST = "172.17.0.2"
+MYSQL_HOST = "localhost"
 MYSQL_PORT = 3306
 MYSQL_USER = "root"
 MYSQL_PWD = "secret"
@@ -14,7 +14,7 @@ SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{}:{}@{}:{}/{}".format(MYSQL_USER,
                                                                   MYSQL_PORT,
                                                                   MYSQL_DB)
 
-engine = create_engine(config.SQLALCHEMY_DATABASE_URI)
+engine = create_engine(SQLALCHEMY_DATABASE_URI)
 Session = sessionmaker(bind=engine)
 
 session = Session()
@@ -33,16 +33,14 @@ __tablename__ = "user"
 email = Column(String(120), unique=True, nullable=False, primary_key=True)
 nom = Column(String(80), nullable=False)
 prenom = Column(String(80), nullable=False)
-ville = Column(String(80), nullable=False)
 telephone = Column(String(80), nullable=False)
 
 
-def add_user(email, nom, prenom, ville, telephone):
+def add_user(email, nom, prenom, telephone):
     try:
         user = User(email=email,
                     nom=nom,
                     prenom=prenom,
-                    ville=ville,
                     telephone=telephone)
 
 
