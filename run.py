@@ -1,3 +1,4 @@
+# coding: utf-8
 import wrapper
 from flask import Flask, jsonify, request
 
