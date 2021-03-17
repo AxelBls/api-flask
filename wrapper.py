@@ -8,7 +8,7 @@ from sqlalchemy import create_engine, Column, String, ForeignKey
 MYSQL_HOST = "db"
 MYSQL_PORT = 3306
 MYSQL_USER = "root"
-MYSQL_PWD = "secret"
+MYSQL_PWD = "root"
 MYSQL_DB = "users"
 
 SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{}:{}@{}:{}/{}".format(MYSQL_USER,
