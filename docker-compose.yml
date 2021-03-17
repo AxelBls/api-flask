@@ -19,8 +19,6 @@ services:
       MYSQL_PASSWORD: secret
     ports:
       - "6033:3306"
-    volumes:
-      - dbdata:/var/lib/mysql
     phpmyadmin:
       image: phpmyadmin/phpmyadmin
       container_name: pma
@@ -33,5 +31,3 @@ services:
       restart: always
       ports:
         - 8081:80
-  volumes:
-    dbdata:
