@@ -5,7 +5,7 @@ COPY . /api
 ADD run.py /
 ADD wrapper.py /
 
-RUN pip3 install flask SQLAlchemy pymysql
+RUN pip3 install flask SQLAlchemy pymysql cryptography
 
 RUN pip freeze > requirements.txt
 
