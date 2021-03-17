@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine, Column, String, ForeignKey
 
-MYSQL_HOST = "0.0.0.0"
+MYSQL_HOST = "172.168.0.4"
 MYSQL_PORT = 3306
 MYSQL_USER = "root"
 MYSQL_PWD = "secret"
