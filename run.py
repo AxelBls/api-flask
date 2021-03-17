@@ -6,6 +6,9 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+@app.route("/")
+def hello():
+    return "Hello World!"
 
 @app.route('/api/v1/user/', methods=['POST'])
 def create_user():
