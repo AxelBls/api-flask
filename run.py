@@ -12,7 +12,7 @@ def hello():
     return "Hello World!"
 
 
-@app.route('/api/v1/user/add', methods=['POST'])
+@app.route('/api/v1/user/', methods=['POST'])
 def create_user():
     payload = request.form.to_dict()
     result = wrapper.add_user(**payload)
@@ -34,7 +34,7 @@ def get_all_users():
     return jsonify(status="False")
 
 
-@app.route('/api/v1/user/&amp;amp;amp;amp;lt;email&amp;amp;amp;amp;gt;', methods=['GET'])
+@app.route('/api/v1/user/<email>', methods=['GET'])
 def get_user(email):
     result = wrapper.get_user_by_id(email)
     if result:
