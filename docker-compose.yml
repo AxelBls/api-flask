@@ -9,3 +9,25 @@ services:
     environment:
       FLASK_APP: run.py
       FLASK_ENV: development
+  mysql:
+    build: mysql
+    environment:
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpassword
+      MYSQL_ROOT_PASSWORD: dbrootpassword
+      MYSQL_DATABASE: dbdatabase
+    volumes_from:
+      - datastore
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - '8080:80'
+  datastore:
+    image: busybox
+    volumes:
+      - /var/lib/mysql
