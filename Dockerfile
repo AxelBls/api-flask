@@ -3,6 +3,7 @@ FROM python:3
 COPY . /api
 
 ADD run.py /
+ADD wrapper.py /
 
 RUN pip freeze > requirements.txt
 
