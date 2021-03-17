@@ -30,7 +30,6 @@ def get_all_users():
                            {"nom": user.nom,
                             "prenom": user.prenom,
                             "email": user.email,
-                            "ville": user.ville,
                             "telephone": user.telephone} for user in result.all()])
     return jsonify(status="False")
 
@@ -44,7 +43,6 @@ def get_user(email):
                        result={"nom": result.nom,
                                "prenom": result.prenom,
                                "email": result.email,
-                               "ville": result.ville,
                                "telephone": result.telephone}
                        )
     return jsonify(status="False")
@@ -61,7 +59,6 @@ def mofify_user(email):
                            "nom": result.nom,
                            "prenom": result.prenom,
                            "email": result.email,
-                           "ville": result.ville,
                            "telephone": result.telephone}
                        )
     return jsonify(status="False")
