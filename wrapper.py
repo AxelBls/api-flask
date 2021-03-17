@@ -1,5 +1,5 @@
 # coding: utf-8
-
+# !/usr/bin/python3
 
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -45,7 +45,6 @@ def add_user(email, nom, prenom, telephone):
                     nom=nom,
                     prenom=prenom,
                     telephone=telephone)
-
 
         session.add(user)
         session.commit()
