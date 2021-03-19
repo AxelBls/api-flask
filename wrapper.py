@@ -51,9 +51,9 @@ class User(Base):
     prenom = Column(String(80), nullable=False)
     telephone = Column(String(80), nullable=False)
 
-    def add_user(self, nom, prenom, telephone):
+    def add_user(email, nom, prenom, telephone):
         try:
-            user = User(email=self,
+            user = User(email=email,
                         nom=nom,
                         prenom=prenom,
                         telephone=telephone)
