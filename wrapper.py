@@ -34,9 +34,9 @@ def get_all_users():
         return False
 
 
-def get_user_by_id(self):
+def get_user_by_id(email):
     try:
-        result = session.query(User).filter_by(email=self).first()
+        result = session.query(User).filter_by(email=email).first()
         return result
     except Exception as e:
         print(e)
