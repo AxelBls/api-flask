@@ -12,7 +12,7 @@ def hello():
     return "Hello World!"
 
 
-@app.route('/api/v1/user/', methods=['POST'])
+@app.route('/api/v1/user/post', methods=['POST'])
 def create_user():
     payload = request.form.to_dict()
     result = wrapper.add_user(**payload)
