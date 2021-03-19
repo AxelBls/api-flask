@@ -41,6 +41,22 @@ def get_user_by_id(User):
         return False
 
 
+def add_user(email, nom, prenom, telephone):
+    try:
+        user = User(email=email,
+                    nom=nom,
+                    prenom=prenom,
+                    telephone=telephone)
+
+        session.add(user)
+        session.commit()
+        return True
+
+    except Exception as e:
+        print(e)
+        return False
+
+
 class User(Base):
     """
     Cette classe correspond à la version objet de notre table user
@@ -50,21 +66,6 @@ class User(Base):
     nom = Column(String(80), nullable=False)
     prenom = Column(String(80), nullable=False)
     telephone = Column(String(80), nullable=False)
-
-    def add_user(email, nom, prenom, telephone):
-        try:
-            user = User(email=email,
-                        nom=nom,
-                        prenom=prenom,
-                        telephone=telephone)
-
-            session.add(user)
-            session.commit()
-            return True
-
-        except Exception as e:
-            print(e)
-            return False
 
     def delete_user_by_id(self):
         try:

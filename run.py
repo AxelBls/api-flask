@@ -14,7 +14,7 @@ def hello():
 
 @app.route('/api/v1/user/post', methods=['POST'])
 def create_user(email, nom, prenom, telephone):
-    result = wrapper.User.add_user(email, nom, prenom, telephone)
+    result = wrapper.add_user(email, nom, prenom, telephone)
     if result:
         return jsonify(status='True', message='User created')
     return jsonify(status='False')
