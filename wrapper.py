@@ -19,9 +19,7 @@ SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{}:{}@{}:{}/{}".format(MYSQL_USER,
 
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
 Session = sessionmaker(bind=engine)
-
 session = Session()
-
 Base = declarative_base()
 
 
@@ -34,9 +32,9 @@ def get_all_users():
         return False
 
 
-def get_user_by_id(email):
+def get_user_by_id(User):
     try:
-        result = session.query(User).filter_by(email=email).first()
+        result = session.query(User).filter_by(email=User.email).first()
         return result
     except Exception as e:
         print(e)
