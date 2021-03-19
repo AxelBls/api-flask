@@ -15,7 +15,7 @@ def hello():
 @app.route('/api/v1/user/post', methods=['POST'])
 def create_user():
     payload = request.form.to_dict()
-    result = wrapper.User.add_user(**payload)
+    result = wrapper.add_user(**payload)
     if result:
         return jsonify(status='True', message='User created')
     return jsonify(status='False')

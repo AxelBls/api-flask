@@ -67,9 +67,9 @@ class User(Base):
             print(e)
             return False
 
-    def delete_user_by_id(mail):
+    def delete_user_by_id(self):
         try:
-            user_to_delete = mail.get_user_by_id()
+            user_to_delete = self.get_user_by_id(self.email)
             if user_to_delete:
                 session.delete(user_to_delete)
                 session.commit()
@@ -82,7 +82,7 @@ class User(Base):
 
     def update_attribute(self, attributes):
         try:
-            user_to_update = self.get_user_by_id()
+            user_to_update = self.get_user_by_id(self)
             if user_to_update:
                 for k, v in attributes.items():
                     setattr(user_to_update, k, v)
@@ -93,3 +93,7 @@ class User(Base):
         except Exception as e:
             print(e)
             return False
+
+
+def add_user(param):
+    return None
