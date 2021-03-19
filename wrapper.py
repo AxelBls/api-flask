@@ -69,7 +69,7 @@ class User(Base):
 
     def delete_user_by_id(self):
         try:
-            user_to_delete = self.get_user_by_id(self.email)
+            user_to_delete = self.get_user_by_id()
             if user_to_delete:
                 session.delete(user_to_delete)
                 session.commit()
@@ -82,7 +82,7 @@ class User(Base):
 
     def update_attribute(self, attributes):
         try:
-            user_to_update = self.get_user_by_id(self)
+            user_to_update = self.get_user_by_id()
             if user_to_update:
                 for k, v in attributes.items():
                     setattr(user_to_update, k, v)
