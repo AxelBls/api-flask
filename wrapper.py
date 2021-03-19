@@ -44,9 +44,9 @@ class User(Base):
     prenom = Column(String(80), nullable=False)
     telephone = Column(String(80), nullable=False)
 
-    def add_user(email, nom, prenom, telephone):
+    def add_user(self, nom, prenom, telephone):
         try:
-            user = User(email=email,
+            user = User(email=self,
                         nom=nom,
                         prenom=prenom,
                         telephone=telephone)
@@ -67,9 +67,9 @@ class User(Base):
             print(e)
             return False
 
-    def delete_user_by_id(self):
+    def delete_user_by_id(mail):
         try:
-            user_to_delete = self.get_user_by_id(self.email)
+            user_to_delete = mail.get_user_by_id()
             if user_to_delete:
                 session.delete(user_to_delete)
                 session.commit()
@@ -82,7 +82,7 @@ class User(Base):
 
     def update_attribute(self, attributes):
         try:
-            user_to_update = self.get_user_by_id(self)
+            user_to_update = self.get_user_by_id()
             if user_to_update:
                 for k, v in attributes.items():
                     setattr(user_to_update, k, v)
