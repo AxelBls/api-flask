@@ -34,6 +34,15 @@ def get_all_users():
         return False
 
 
+def get_user_by_id(self):
+    try:
+        result = session.query(User).filter_by(email=self).first()
+        return result
+    except Exception as e:
+        print(e)
+        return False
+
+
 class User(Base):
     """
     Cette classe correspond à la version objet de notre table user
@@ -55,14 +64,6 @@ class User(Base):
             session.commit()
             return True
 
-        except Exception as e:
-            print(e)
-            return False
-
-    def get_user_by_id(self):
-        try:
-            result = session.query(User).filter_by(email=self).first()
-            return result
         except Exception as e:
             print(e)
             return False
@@ -93,7 +94,3 @@ class User(Base):
         except Exception as e:
             print(e)
             return False
-
-
-def add_user(param):
-    return None
